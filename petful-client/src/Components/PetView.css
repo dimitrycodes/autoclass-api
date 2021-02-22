@@ -1,0 +1,59 @@
+.pet-view {
+    width: 95%;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    padding-bottom: 20px;
+  }
+  
+  .name-and-img {
+    flex: 1;
+  }
+  
+  .name-and-img img {
+    width: 100%;
+  }
+  
+  .name-and-img h3, .name-and-img p {
+    padding: 15px;
+    margin: 0;
+    background-color: rgba(71, 93, 116, 0.205);
+  }
+  
+  .name-and-img h3 {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
+  
+  .name-and-img p {
+    padding-top: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .pet-desc {
+    padding-top: 40px;
+    flex: 1;
+    display: flex;
+    text-align: left;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .pet-desc div {
+    max-width: 250px;
+    margin-left: 15px;
+  }
+  
+  .story {
+    margin-bottom: 0px;
+  }
+  
+  .adopt-button {
+    padding-top: 0px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    min-height: 55px;
+    margin: 10px;
+  }
