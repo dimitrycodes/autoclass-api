@@ -11,7 +11,10 @@ class SignUpForm extends React.Component {
 
     let { name } = e.target;
     PeopleService.post(name.value)
-    .then(this.context.setUserName)
+    .then((data) => {
+      //console.log("data", data)
+      this.context.setUserName(name.value)
+    })
     .then(() => {
       this.context.setPeople([
         ...this.context.people,

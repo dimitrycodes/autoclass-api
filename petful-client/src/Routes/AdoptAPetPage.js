@@ -9,6 +9,14 @@ import loadingImg from '../images/loading.gif';
 import './AdoptAPetPage.css';
 
 class AdoptAPetPage extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  //   console.log("constructor called");
+  //   PetService.get()
+  //   .then((data) => {
+  //     this.context.setPets(data)
+  //   }); 
+  // }
   static contextType = PetfulContext;
 
   state = { 
@@ -18,10 +26,10 @@ class AdoptAPetPage extends React.Component {
    fifoInt = 0;
    fifoTimeOut = 0;
 
-  componentDidMount() {
+  componentDidMount = () => {
       this.context.clearError();
       this.updatePage();
-      this.showButtons();
+      // this.showButtons();
   
       if (this.fifoInt === 0) {
         this.fifoInt = setInterval(this.fifo, 5000)
@@ -47,9 +55,14 @@ class AdoptAPetPage extends React.Component {
 
   updatePage = () => {
     PetService.get()
-      .then(this.context.setPets) 
+      .then((data) => {
+        console.log('data', data)
+        this.context.setPets(data)
+      }); 
     PeopleService.get()
-      .then(this.context.setPeople)
+      .then((data) => {
+        console.log('data', data)
+        this.context.setPeople(data)})
     this.showButtons();
   }
 
