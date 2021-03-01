@@ -5,7 +5,7 @@ const PetService = {
     return mutableFetch('pets')
   },
   adopt(type) {
-    return mutableFetch('pets', type, {
+    return mutableFetch(`pets/${type}`, {
       method: 'DELETE'
     })
   }

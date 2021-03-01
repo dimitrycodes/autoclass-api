@@ -6,7 +6,7 @@ const PeopleService = {
   },
   post(name) {
     name = JSON.stringify({name : name});
-    return mutableFetch('people', null, {
+    return mutableFetch('people', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
