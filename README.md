@@ -1,46 +1,12 @@
-# EXPRESS BOILERPLATE
+# petful-client
 
-### Get your Express project up and running easily with this boilerplate
+Live-App: https://petful-client-nine-theta.vercel.app/
 
----
+Server-Repo: https://github.com/dimitrycodes/petful-server 
 
-## Set up
+This is an app which enables you to be put on a waiting list to adopt a pet that has been waiting for a home. Every prospective adopter goes into a queue and see in real time as the pets are being matched with new owners. 
+The app will show you two anumals(a cat and a dog) that you can choose to be part of your family. 
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
 
----
-
-## Scripts
-
-Start the application `npm start`
-
-Start nodemon for the application `npm run dev`
-
-Run the tests `npm test`
-
-Run a watching test environment `npm run watch`
-
----
-
-## Deploying
-
-When your new project is ready for deployment, add a new Heroku application with `heroku create`.  
-This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's main branch.
-
----
-
-## Included packages:
-
-### For App:
-
-**Morgan** (real-time notifications of requests in the terminal)  
-**Cors** (prevents CORS errors with simple requests)  
-**Helmet** (protects sensitive header information)  
-**Dotenv** (imports from the .env file to process.env object for access)
-
-### For Development:
-
-**NodeMon** (dev server that auto-refreshes when changes are made)  
-**Mocha** (a testing structure package)  
-**Chai** (assertion functions package)  
-**Supertest** (package used to test HTTP calls)
+ERN Stack
+This app was created using: React, Node, Javascript, HTML5, CSS3, and Git   
