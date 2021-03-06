@@ -22,10 +22,10 @@ app.use(express.json());
 app.post('/sports', async (req, res) => {
   try {
     
-    const {sportsname, playername, championshipsWon, careerPointsScored, careerAssistRanking, mvpAwards, yearsPlayed, scoringEfficiency} = req.body;
+    const {sports_id, sportsname, playername, championshipsWon, careerPointsScored, careerAssistRanking, mvpAwards, yearsPlayed, scoringEfficiency} = req.body;
     const newSport = await pool.query(
-      'INSERT INTO sports (sportsname, playername, championshipsWon, careerPointsScored, careerAssistRanking, mvpAwards, yearsPlayed, scoringEfficiency) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *', 
-      [sportsname, playername, championshipsWon, careerPointsScored, careerAssistRanking, mvpAwards, yearsPlayed, scoringEfficiency]);
+      'INSERT INTO sports (sports_id, sportsname, playername, championshipsWon, careerPointsScored, careerAssistRanking, mvpAwards, yearsPlayed, scoringEfficiency) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *', 
+      [sports_id, sportsname, playername, championshipsWon, careerPointsScored, careerAssistRanking, mvpAwards, yearsPlayed, scoringEfficiency]);
 
     res.json(newSport.rows[0]);
     
