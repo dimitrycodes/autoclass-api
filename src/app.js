@@ -54,15 +54,25 @@ app.put('/sports/:id', async(req, res) => {
 
   try {
     const { id } = req.params;
-    const {sportsname, playername, championshipsWon, careerPointsScored, careerAssistRanking, mvpAwards, yearsPlayed, scoringEfficiency} = req.body;
+    const {sportsname, playername, championshipswon, careerpointsscored, careerassistranking, mvpawards, yearsplayed, scoringefficiency} = req.body;
+    console.log(`UPDATE sports SET sportsname = '${sportsname}', playername = '${playername}', championshipsWon = '${championshipsWon}', careerPointsScored = '${careerPointsScored}', careerAssistRanking = '${careerAssistRanking}', mvpAwards = '${mvpAwards}', yearsPlayed = '${yearsPlayed}', scoringEfficiency = '${scoringEfficiency}' WHERE id = ${id}`)
     /*const update = await db('sports')
       .where({ id })
       .update({sportsname, playername});*/
 
+    // const update = await pool.query(
+    //   `UPDATE sports SET sportsname = '${sportsname}', playername = '${playername}', championshipsWon = '${championshipsWon}', careerPointsScored = '${careerPointsScored}', careerAssistRanking = '${careerAssistRanking}', mvpAwards = '${mvpAwards}', yearsPlayed = '${yearsPlayed}', scoringEfficiency = '${scoringEfficiency}' WHERE id = ${id}`);
     const update = await pool.query(
-      `UPDATE sports SET sportsname = '${sportsname}', playername = '${playername}', championshipsWon = '${championshipsWon}', careerPointsScored = '${careerPointsScored}', careerAssistRanking = '${careerAssistRanking}', mvpAwards = '${mvpAwards}', yearsPlayed = '${yearsPlayed}', scoringEfficiency = '${scoringEfficiency}' WHERE id = ${id}`);
+      `UPDATE sports SET sportsname = '${sportsname}', playername = '${playername}', championshipsWon = '${championshipswon}', careerPointsScored = '${careerpointsscored}', careerAssistRanking = '${careerassistranking}', mvpAwards = '${mvpawards}', yearsPlayed = '${yearsplayed}', scoringEfficiency = '${scoringefficiency}' WHERE id = ${id}`,
+      (err,response)=>{
+        if(err){
+          console.log(err);
+          return res.json(err);
+  }
+		  return res.json(response)
+      });
 
-    res.json('Sport was updated!');
+    //res.json('Sport was updated!');
     
   } catch (error) {
     console.error(error.message);
