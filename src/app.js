@@ -55,7 +55,7 @@ app.put('/sports/:id', async(req, res) => {
   try {
     const { id } = req.params;
     const {sportsname, playername, championshipswon, careerpointsscored, careerassistranking, mvpawards, yearsplayed, scoringefficiency} = req.body;
-    console.log(`UPDATE sports SET sportsname = '${sportsname}', playername = '${playername}', championshipsWon = '${championshipsWon}', careerPointsScored = '${careerPointsScored}', careerAssistRanking = '${careerAssistRanking}', mvpAwards = '${mvpAwards}', yearsPlayed = '${yearsPlayed}', scoringEfficiency = '${scoringEfficiency}' WHERE id = ${id}`)
+    //console.log(`UPDATE sports SET sportsname = '${sportsname}', playername = '${playername}', championshipsWon = '${championshipsWon}', careerPointsScored = '${careerPointsScored}', careerAssistRanking = '${careerAssistRanking}', mvpAwards = '${mvpAwards}', yearsPlayed = '${yearsPlayed}', scoringEfficiency = '${scoringEfficiency}' WHERE id = ${id}`)
     /*const update = await db('sports')
       .where({ id })
       .update({sportsname, playername});*/
