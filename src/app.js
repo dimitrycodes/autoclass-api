@@ -83,7 +83,7 @@ app.delete('/class/:id', async (req, res) => {
   try {
     const deleteClass = await pool.query(
       // return db.from('table name').select('*').where('id', id).first()
-      'DELETE FROM carclass WHERE id = $1', //used to be class_id which would delete the entire class but now it deletes a single car entry
+      'DELETE FROM carclass WHERE class_id = $1', //used to be class_id which would delete the entire class but now it deletes a single car entry
       [id]
     );
 

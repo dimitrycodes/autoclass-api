@@ -14,7 +14,7 @@ node_modules/
 
 # misc
 .DS_Store
-.env
+/.env
 .env.local
 .env.development.local
 .env.test.local
@@ -26,4 +26,4 @@ yarn-error.log*
 
 cypress/videos
 
-.vercel
+.vercel.env
