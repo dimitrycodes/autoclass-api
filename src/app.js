@@ -18,16 +18,16 @@ app.use(express.json());
 
 //ROUTES//
 
-//Create a Sport
-app.post('/sports', async (req, res) => {
+//Create a Class
+app.post('/class', async (req, res) => {
   try {
     
-    const {sports_id, sportsname, playername, championshipsWon, careerPointsScored, careerAssistRanking, mvpAwards, yearsPlayed, scoringEfficiency} = req.body;
-    const newSport = await pool.query(
-      'INSERT INTO sports (sports_id, sportsname, playername, championshipsWon, careerPointsScored, careerAssistRanking, mvpAwards, yearsPlayed, scoringEfficiency) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *', 
-      [sports_id, sportsname, playername, championshipsWon, careerPointsScored, careerAssistRanking, mvpAwards, yearsPlayed, scoringEfficiency]);
+    const {class_id, carclass, makeandmodel, comfort, topspeed, handling, crashsafetyrating, fueleconomy} = req.body;
+    const newClass = await pool.query(
+      'INSERT INTO carclass (class_id, carclass, makeandmodel, comfort, topspeed, handling, crashsafetyrating, fueleconomy) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *', 
+      [class_id, carclass, makeandmodel, comfort, topspeed, handling, crashsafetyrating, fueleconomy]);
 
-    res.json(newSport.rows[0]);
+    res.json(newClass.rows[0]);
     
   } catch (error) {
     console.error(error.message);
@@ -35,11 +35,11 @@ app.post('/sports', async (req, res) => {
   }
 });
 
-//Get All sports
-app.get('/sports', async (req, res) => {
+//Get All Classes
+app.get('/class', async (req, res) => {
   try {
-    const allSports = await pool.query('SELECT * FROM sports');
-    res.json(allSports.rows);
+    const allClasses = await pool.query('SELECT * FROM carclass');
+    res.json(allClasses.rows);
     
   } catch (error) {
     console.error(error.message);
@@ -47,32 +47,29 @@ app.get('/sports', async (req, res) => {
   }
 });
 
-//Get A single sport (that's for later)
+//Get A single Class (that's for later)
 
-//Update a Sport
-app.put('/sports/:id', async(req, res) => {
+//Update a Class
+app.put('/class/:id', async(req, res) => {
 
   try {
     const { id } = req.params;
-    const {sportsname, playername, championshipswon, careerpointsscored, careerassistranking, mvpawards, yearsplayed, scoringefficiency} = req.body;
+    const {carclass, makeandmodel, comfort, topspeed, handling, crashsafetyrating, fueleconomy} = req.body;
     //console.log(`UPDATE sports SET sportsname = '${sportsname}', playername = '${playername}', championshipsWon = '${championshipsWon}', careerPointsScored = '${careerPointsScored}', careerAssistRanking = '${careerAssistRanking}', mvpAwards = '${mvpAwards}', yearsPlayed = '${yearsPlayed}', scoringEfficiency = '${scoringEfficiency}' WHERE id = ${id}`)
     /*const update = await db('sports')
       .where({ id })
       .update({sportsname, playername});*/
-
-    // const update = await pool.query(
-    //   `UPDATE sports SET sportsname = '${sportsname}', playername = '${playername}', championshipsWon = '${championshipsWon}', careerPointsScored = '${careerPointsScored}', careerAssistRanking = '${careerAssistRanking}', mvpAwards = '${mvpAwards}', yearsPlayed = '${yearsPlayed}', scoringEfficiency = '${scoringEfficiency}' WHERE id = ${id}`);
     const update = await pool.query(
-      `UPDATE sports SET sportsname = '${sportsname}', playername = '${playername}', championshipsWon = '${championshipswon}', careerPointsScored = '${careerpointsscored}', careerAssistRanking = '${careerassistranking}', mvpAwards = '${mvpawards}', yearsPlayed = '${yearsplayed}', scoringEfficiency = '${scoringefficiency}' WHERE id = ${id}`,
+      `UPDATE carclass SET carclass = '${carclass}', makeandmodel = '${makeandmodel}', comfort = '${comfort}', topspeed = '${topspeed}', handling = '${handling}', crashsafetyrating = '${crashsafetyrating}', fueleconomy = '${fueleconomy}' WHERE id = ${id}`,
       (err,response)=>{
         if(err){
           console.log(err);
           return res.json(err);
   }
-		  return res.json(response)
+		  return res.json('Class was updated!'); //res.json(response)
       });
 
-    //res.json('Sport was updated!');
+    //res.json('Class was updated!');
     
   } catch (error) {
     console.error(error.message);
@@ -80,17 +77,17 @@ app.put('/sports/:id', async(req, res) => {
   }
 });
 
-//Delete a sport
-app.delete('/sports/:id', async (req, res) => {
+//Delete a Class
+app.delete('/class/:id', async (req, res) => {
   const { id } = req.params;
   try {
-    const deleteSport = await pool.query(
+    const deleteClass = await pool.query(
       // return db.from('table name').select('*').where('id', id).first()
-      'DELETE FROM sports WHERE sports_id = $1', 
+      'DELETE FROM carclass WHERE id = $1', //used to be class_id which would delete the entire class but now it deletes a single car entry
       [id]
     );
 
-    res.json("Sports was deleted!");
+    res.json("Class was deleted!");
 
     
   } catch (error) {

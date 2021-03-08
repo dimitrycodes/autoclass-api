@@ -1,2 +1,2 @@
-INSERT INTO sports (sports_id, sportsname, playername) VALUES
-('1', 'Soccer', 'Zidane');
+INSERT INTO carclass (class_id, carclass, makeandmodel) VALUES
+('1', 'Sport', 'BWM Z4');

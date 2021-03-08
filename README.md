@@ -1,16 +1,16 @@
-# Goats-Server
+# Autoclass-API
 
-Goats is an app that enables you to store your top players in a sport(only one sport available for now) according to 6 key statistics. Those statistics will help you make the case for which player is the greatest player of all time. You can create your list, store their statics, and update them if the player is still playing or if you made an error or if you decide that the player doesn't belong in the list because another player is better. 
+Autoclass allows you to store your top 5 cars for a particular class according to 5 performance metrics. The performance metrics will help you ranks cars that you have owned or have knowledge of. You can create your car list, store their metrics, and update them as new cars are put on the market or if you made an error. 
 
 The app uses all of the CRUD operations and has a database built with Postgres 
 
-##POST /sports ---> Adds a new sport with the corresponding players and each of their statistics.
+##POST /cars ---> Adds a new class with the corresponding cars and each of their performance metrics.
 
-##GET /sports ---> Gets the data for all sports
+##GET /cars ---> Gets the data for all cars in their class
 
-##PUT /sports/:id ---> Update a Sports players and their statistics
+##PUT /cars/:id ---> Update a class' cars and their performance metrics
 
-#DELETE /sports/:id ---> Deletes an entire sport
+#DELETE /cars/:id ---> Deletes an entire class of cars
 
 Stack this app was created using: Node, Express, Git, Javascript, Postgresql, Heroku
 
