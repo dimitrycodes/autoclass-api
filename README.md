@@ -5,8 +5,11 @@ Goats is an app that enables you to store your top players in a sport(only one s
 The app uses all of the CRUD operations and has a database built with Postgres 
 
 ##POST /sports ---> Adds a new sport with the corresponding players and each of their statistics.
+
 ##GET /sports ---> Gets the data for all sports
+
 ##PUT /sports/:id ---> Update a Sports players and their statistics
+
 #DELETE /sports/:id ---> Deletes an entire sport
 
 Stack this app was created using: Node, Express, Git, Javascript, Postgresql, Heroku
